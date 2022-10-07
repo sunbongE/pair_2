@@ -1,16 +1,15 @@
 {% extends 'base.html' %} {% block content %}
 {% load django_bootstrap5 %}
-<div class="container">
-    <form action="{% url 'reviews:create' %}" method="POST">
+<div class="container my-3 fs-4">
+    <form action="{% url 'reviews:create' %}" method="POST" class="text-warning">
         {% csrf_token %}
         {% bootstrap_form review_form %}
     
         {% comment %} {{ movie_form.as_p }} {% endcomment %}
        <div class='d-flex justify-content-end'>
-           <a class="btn btn-outline-primary mx-3" href="{% url 'reviews:reviews' %}">Home</a>
-           <input class="btn btn-outline-primary " type="submit" value='Submit'>
+            <a href="{% url 'reviews:reviews' %}"><button type="button" class="btn btn-outline-warning m-1">Home</button></a>
+            <input class="btn btn-outline-warning m-1" type="submit" value='Submit'>
         </div>
     </form>
-
 </div>
 {% endblock %}

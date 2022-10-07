@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
     <style>
-      body { 
+      body {
+        height: 800px;
         font-family: 'Black And White Picture', sans-serif;
       }
     </style>
@@ -18,10 +19,11 @@
   <body>
     <nav class="navbar bg-dark">
         <div class="container-fluid justify-content-start">
-          <a class="navbar-brand" href="{% url 'reviews:reviews' %}">
+          <a class="navbar-brand text-warning me-auto" href="{% url 'reviews:reviews' %}">
             <img src="{% static 'img/eyes.png' %}" width="auto" height="30">
+            Hallowood
           </a>
-          <a class="navbar-brand text-warning btn btn-outline-warning" href="{% url 'reviews:create' %}"><b>리뷰 작성</b></a>
+          <a href="{% url 'reviews:create' %}"><button type="button" class="btn btn-outline-warning"><b>리뷰 작성</b></button></a>
         </div>
     </nav>
     {% block content %} {% endblock content %}
