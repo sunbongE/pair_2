@@ -7,10 +7,23 @@
     <h1 class='text-center mb-5 text-warning'>페이지 상세보기
       <hr>
     </h1>
+{% comment %} 연습 {% endcomment %}
 
+{% comment %}  {% endcomment %}
 <div class="d-flex justify-content-center">
   <div class="card text-bg-warning mb-3" style="width: 50%;">
-    <div class="card-header">{{ review.movie_name }}</div>
+    <div class="card-header d-flex justify-content-between align-items-center ">
+      <span class='fs-3' >
+        {{ review.movie_name }}
+      </span>
+    <div>
+
+      {% for i  in icon %}
+      <img src="{%static 'icon/skull.png' %}" alt="">
+      {% endfor %}
+    </div>
+
+    </div>
     <div class="card-body">
       <h5 class="card-title">{{ review.title }}</h5>
       <p class="card-text">{{ review.content }}</p>

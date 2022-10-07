@@ -1,28 +1,60 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
   <div class="container my-5">
-    <table class="table">
+    <table class="table " >
       <thead class="table-dark">
         <tr>
           <th>PK</th>
-          <th>Review Title</th>
+          <th>Title</th>
           <th>Content</th>
-          <th>Movie Title</th>
+          <th>Movie</th>
+          <th>Grade</th>
         </tr>
       </thead>
-      <tbody class="bg-warning">
+      <tbody class="bg-warning" >
         {% for review in reviews %}
-        <tr>
-          <td>{{ review.pk }}</td>
-          <td>
-            <a class="text-decoration-none" href="{% url 'reviews:detail' review.pk %}">
-            {{ review.title }}
-            </a>
-          </td>
-          <td>{{ review.content }}</td>
-          <td>{{ review.movie_name }}</td>
-        </tr>
+          <tr>
+            <td>{{ review.pk }}</td>
+            <td>
+              <a class="text-decoration-none " href="{% url 'reviews:detail' review.pk %}">
+                {{ review.title }}
+              </a>
+            </td>
+            <td>{{ review.content }}</td>
+            <td>{{ review.movie_name }}</td>
+            {% comment %} if {% endcomment %}
+            <td> 
+              {% if review.grade == 5 %}
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              {% endif %}
+              {% if review.grade == 4 %}
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              {% endif %}
+              {% if review.grade == 3 %}
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              {% endif %}
+              {% if review.grade == 2 %}
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              <img src="{%static 'icon/skull.png' %}" alt="">
+              {% endif %}
+              {% if review.grade == 1 %}
+              <img src="{%static 'icon/skull.png' %}" alt="">
+
+              {% endif %}
+            </td>
+          </tr>
         {% endfor %}
+
       </tbody>
     </table>
   </div>

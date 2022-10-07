@@ -8,8 +8,15 @@ from .models import Review
 
 def reviews(request):
     reviews = Review.objects.all().order_by("-pk")
+    icons = []
+    for review in reviews:
+        icon = [True] * review.grade
+        icons.append(icon)
 
-    context = {"reviews": reviews}
+    context = {
+        "reviews": reviews,
+        "icons": icons,
+    }
 
     return render(request, "reviews/reviews.html", context)
 
@@ -32,7 +39,12 @@ def create(request):
 def detail(request, pk):
     review = Review.objects.get(pk=pk)
 
-    context = {"review": review}
+    icon = [True] * review.grade
+
+    context = {
+        "review": review,
+        "icon": icon,
+    }
 
     return render(request, "reviews/detail.html", context)
 
