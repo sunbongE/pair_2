@@ -7,16 +7,26 @@
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        font-family: 'Black And White Picture', sans-serif;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar bg-primary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'reviews:reviews' %}"><b>Base 있음</b></a>
+    <nav class="navbar bg-dark">
+        <div class="container-fluid justify-content-start">
+          <a class="navbar-brand" href="{% url 'reviews:reviews' %}">
+            <img src="{% static 'img/eyes.png' %}" width="auto" height="30">
+          </a>
+          <a class="navbar-brand text-warning btn btn-outline-warning" href="{% url 'reviews:create' %}"><b>리뷰 작성</b></a>
         </div>
     </nav>
     {% block content %} {% endblock content %}
-    <footer class="footer text-center py-3 bg-primary position-sticky bottom-0" style="width: 100%">
-        <p><b>Base 있음</b></p>
+    <footer class="footer text-center py-2 bg-dark text-warning position-fixed bottom-0" style="width: 100%">
+        <p><b>⁜2022.PJT⁜. (/ ￣ ︶ ￣* )/ Everyboy Website.</b></p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>

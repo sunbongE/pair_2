@@ -1,7 +1,5 @@
 {% extends 'base.html' %} {% block content %}
 {% load django_bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 <div class="container">
     <form action="{% url 'reviews:create' %}" method="POST">
         {% csrf_token %}
