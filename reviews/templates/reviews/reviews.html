@@ -1,9 +1,21 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
-<h2>reviews.html</h2>
-<hr>
+  <h2>reviews.html</h2>
+  <hr>
 
-<a href="{% url 'reviews:create' %}" type="button" class="btn btn-outline-info text-decoration-none m-3">정보 추가</a>
+  <a href="{% url 'reviews:create' %}" type="button" class="btn btn-outline-info text-decoration-none m-3">정보 추가</a>
+  <br>
+  {% for review in reviews %}
+    {{ review.pk }}
+    <a href="{% url 'reviews:detail' review.pk %}">
+      {{ review.title }}
+    </a>
+    {{ review.content  }}
+    {{ review.movie_name }}
+    <hr>
 
-<hr>
+  {% endfor %}
+
+  <hr>
 {% endblock %}
